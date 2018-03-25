@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if site.data.hello.title -%}
+    <h1 class="page-heading">{{ site.data.hello.title }}</h1>
+  {%- endif -%}
+
+  {{ site.data.hello.text | markdownify }}
+
+
+</div>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
