@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: master
+
+publish_mode: editorial_workflow
+media_folder: "/media"
+
+collections:
+  - name: "posts"
+    label: "Блог"
+    create: true
+    folder: "_posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Название", name: "title", widget: "string"}
+      - {label: "Автор", name: "title", widget: "string"}
+      - {label: "Текст", name: "body", widget: "markdown"}
+  - name: "settings"
+    label: "Настройки"
+    files:
+    - name: "hello"
+      label: "Главная"
+      file: "_data/hello.yml"
+      fields:
+        - { label: "Заголовок", name: "title", widget: "string"}
+        - { label: "Текст", name: "text", widget: "markdown" }
+
