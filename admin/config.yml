@@ -3,3 +3,15 @@ backend:
   branch: master
 
 publish_mode: editorial_workflow
+media_folder: "/media"
+
+collections:
+  - name: "posts"
+    label: "Post"
+    create: true
+    folder: "_posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "content", name: "body", widget: "markdown"}
+      - {label: "title", name: "title", widget: "string"}
